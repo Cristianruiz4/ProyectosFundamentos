@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algoritmo3</title>
+    <style>
+        body {
+            background-color: #f4f4f9;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        h3 {
+            color: #555;
+        }
+        input[type="text"], input[type="button"] {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="button"] {
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #5c67f2;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button, input[type="button"] {
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #5c67f2;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover, input[type="button"]:hover {
+            background-color: #474cbf;
+        }
+        #out {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #222;
+        }
+        a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        function cubo(){
+            if(!isNaN(document.getElementById("num").value) && (document.getElementById("num").value) > 1 ){
+            var naturales = parseInt(document.getElementById("num").value);
+            var resultado = "Resultado: <br>";
+
+            for (let i = 1; i <= naturales; i++){
+                if (i % 2 == 0){
+                resultado += `${i} al cubo es: ${i*i*i}<br>`;
+                }
+            }
+            document.getElementById("out").innerHTML= resultado;
+        }else{
+            document.getElementById("out").innerHTML= "El valor ingresado debe ser numerico y mayor a 1";
+        }
+        }
+    </script>
+</head>
+<body bgcolor="#b2c7cb" align="center">
+    <h1>Numeros enteros naturales elevados al cubo</h1>
+    <h3>Escribir un programa que muestre en pantalla los cinco primeros numeros naturales pares elevados al cubo<br>
+    Ejemplo:</h3>
+    2 al cubo es 8  <br>
+    4 al cubo es 64 <br>
+    6 al cubo es ... <br>
+    8 al cubo es ... <br>
+    100 al cubo es ... <br>
+    Cantidad <input type="text" value="20" id="num"><br><br>
+    <input type="button" value="Calcular" onclick="cubo()"><br>
+    <p id="out">Resultado</p>
+    <a href="index.html"><button>Regresar al menu</button></a><br>
+    
+</body>
+</html>

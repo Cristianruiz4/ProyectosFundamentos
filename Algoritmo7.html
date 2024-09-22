@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algoritmo 3</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: #5c67f2;
+        }
+
+        p, select, input {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        button, input[type="button"] {
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #5c67f2;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover, input[type="button"]:hover {
+            background-color: #474cbf;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, td {
+            border: 2px solid #333;
+        }
+
+        td {
+            width: 60px;
+            height: 60px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        td input {
+            width: 50px;
+            height: 40px;
+            text-align: center;
+            font-size: 18px;
+            color: #5c67f2;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        td input[type="number"] {
+            -moz-appearance: textfield; 
+        }
+
+        td.suma {
+            background-color: #f9f9f9;
+            font-weight: bold;
+            color: #444;
+        }
+
+        #verificar {
+            margin-top: 20px;
+            font-size: 24px;
+            color: crimson;
+        }
+
+        select {
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+    </style>
+    <script>
+    function Generar(){
+            document.getElementById("cuadrado").innerHTML = "";
+
+            var tabla = document.getElementById("cuadrado");
+            var lados = parseInt(document.getElementById("lados").value);
+            var celda = "", nuevaFila = "", r=0, c=0
+            for(r=0; r<lados; r++){
+                nuevaFila = tabla.insertRow(-1);
+                celda = nuevaFila.insertCell(0);
+                celda.innerHTML = "";
+                celda.style.border = "none";
+                for(c=0; c < lados; c++){
+                    celda = nuevaFila.insertCell(-1);
+                    var entrada = document.createElement("input");
+                    entrada.setAttribute("type","number");
+                    entrada.setAttribute("value", Aleatorio());
+                    entrada.setAttribute("required","required");
+                    entrada.setAttribute("style", "width:50px; color:purple");
+                    celda.appendChild(entrada);
+
+                }
+                var celda = nuevaFila.insertCell(-1);
+                celda.innerHTML = "suma";
+            }
+            nuevaFila = tabla.insertRow(-1);
+            for(c = 0; c < lados+2; c++){
+                celda = nuevaFila.insertCell(-1);
+                celda.innerHTML = "suma";   
+            }
+            tabla.rows[lados].cells[c-1].innerHTML = "diagonal";
+            tabla.rows[lados].cells[0].innerHTML = "diagonal";
+        }
+        function Aleatorio(){
+            return Math.floor(Math.random()*100);   
+        }
+        function EjemploMagico(){
+            var tabla = document.getElementById("cuadrado");
+            for (let r = 0; r< document.getElementById("lados").value; r++){
+                for(let c = 1; c <= document.getElementById("lados").value; c++){
+                    tabla.rows[r].cells[c].querySelector('input').value = document.getElementById("lados").value;
+                }
+            }
+            document.getElementById("verificar").innerHTML = "Si es un cuadrado magico";
+            document.getElementById("verificar").style = "color: blue";
+        }
+        function EjemploCuadrado(){
+            var tabla = document.getElementById("cuadrado");
+            var r = 0, c = 0;
+            for (r = 0; r< document.getElementById("lados").value; r++){
+                for(c = 1; c <= document.getElementById("lados").value; c++){
+                    tabla.rows[r].cells[c].querySelector('input').value = Aleatorio();
+                }
+            }
+            tabla.rows[r-1].cells[c-1].querySelector('input').value = -1;
+            document.getElementById("verificar").innerHTML = "No es cuadrado magico";
+            document.getElementById("verificar").style = "color: crimson";
+        }
+        function Calcular(){
+            var tabla = document.getElementById("cuadrado");
+    var lado = tabla.rows.length - 1;
+    var r = 0, c = 0, sumaFila = 0, sumaColumna = 0;
+    var sumaDiagonal1 = 0, sumaDiagonal2 = 0;
+
+    for(r = 0; r < lado; r++){    
+        sumaFila = 0;
+        for(c = 1; c <= lado; c++){
+            var valor = parseInt(tabla.rows[r].cells[c].querySelector('input').value);
+            sumaFila += valor;
+
+            if (r === c - 1) {
+                sumaDiagonal1 += valor;
+            }
+
+            if (r + c === lado) {
+                sumaDiagonal2 += valor;
+            }
+        }
+        tabla.rows[r].cells[lado+1].innerHTML = sumaFila;
+    }
+
+    // Sumar columnas
+    for(c = 1; c <= lado; c++){
+        sumaColumna = 0;
+        for(r = 0; r < lado; r++){
+            sumaColumna += parseInt(tabla.rows[r].cells[c].querySelector('input').value);
+        }
+        tabla.rows[lado].cells[c].innerHTML = sumaColumna;
+    }
+
+
+    tabla.rows[lado].cells[lado+1].innerHTML = sumaDiagonal1;
+    tabla.rows[lado].cells[0].innerHTML = sumaDiagonal2;
+    }
+    function VerificarCuadradoMagico() {
+    var tabla = document.getElementById("cuadrado");
+    var lado = tabla.rows.length - 1;  
+    var sumaReferencia = parseInt(tabla.rows[0].cells[lado + 1].innerHTML); 
+    var r, c;
+    for (r = 0; r < lado; r++) {
+        var sumaFila = parseInt(tabla.rows[r].cells[lado + 1].innerHTML);
+        if (sumaFila !== sumaReferencia) {
+            document.getElementById("verificar").innerHTML = "No es cuadrado magico";
+            document.getElementById("verificar").style = "color: crimson";
+            return false;
+        }
+    }
+    for (c = 1; c <= lado; c++) {
+        var sumaColumna = parseInt(tabla.rows[lado].cells[c].innerHTML);
+        if (sumaColumna !== sumaReferencia) {
+            document.getElementById("verificar").innerHTML = "No es cuadrado magico";
+            document.getElementById("verificar").style = "color: crimson";
+            return false;
+        }
+    }
+
+    var sumaDiagonal1 = parseInt(tabla.rows[lado].cells[lado + 1].innerHTML);
+    var sumaDiagonal2 = parseInt(tabla.rows[lado].cells[0].innerHTML); 
+
+    if (sumaDiagonal1 !== sumaReferencia || sumaDiagonal2 !== sumaReferencia) {
+        document.getElementById("verificar").innerHTML = "No es cuadrado magico";
+        document.getElementById("verificar").style = "color: crimson";
+        return false;
+    }
+
+    document.getElementById("verificar").innerHTML = "Es un cuadrado magico";
+    document.getElementById("verificar").style = "color: blue";
+    return true;
+}    
+    </script>
+</head>
+<body onload="Generar()">
+    <h1>Cuadrado Magico</h1>
+    <p>Los cuadrados magicos, son un conjunto de de números enteros diferentes colocados en las casillas de un cuadrado 
+    y que se caracterizan porque las sumas de sus filas, columnas y diagonales principales es siempre la misma, el valor
+    de la suma es denominado Constante mágica de Cuadrado. </p>
+    <br>
+    <p>Selecciona el tamaño del cuadrado:</p>
+    <select id="lados" onchange="Generar()">
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+    <input type="button" value="Generar" onclick="Generar()">
+    <input type="button" value="Calcular" onclick="Calcular(); VerificarCuadradoMagico()">
+    <input type="button" value="Ejemplo al cuadrado" onclick="EjemploCuadrado()">
+    <input type="button" value="Ejemplo al cuadrado magico" onclick="EjemploMagico()">
+    <br><br>
+    <table border="0.5" id="cuadrado" style="border-collapse: collapse;"></table>
+    <h1 id="verificar" style="color: crimson;">No es cuadrado magico</h1>
+    <a href="index.html"><button>Regresar al menu</button></a><br>
+</body>
+</html>
