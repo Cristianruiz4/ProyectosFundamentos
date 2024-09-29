@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arreglo 2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #4e5c68;
+            text-align: center;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        table {
+            margin: 10px 0;
+            width: auto;
+            border: 1px solid #555;
+        }
+        button, input[type="button"] {
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #5c67f2;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        table, th, td {
+            border-collapse: collapse;
+            border: 1px solid #4e5c68;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        input[type="number"], input[type="button"] {
+            font-size: 16px;
+            padding: 5px;
+            margin: 5px;
+        }
+        input[type="button"] {
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #5c67f2;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        input[type="button"]:hover {
+            background-color: #617583;
+        }
+        #resultados {
+            font-weight: bold;
+            color: #4e5c68;
+        }
+    </style>
+    <script>
+        var contador = 0;
+        function Capturar(){
+
+            //agregamos renglones horizontales
+            var renglonIndice = document.getElementById("renglonIndice");
+            var indice = renglonIndice.insertCell(-1).innerHTML = `[${contador}]`;
+
+            var renglonDato = document.getElementById("renglonDato");
+            var dato = renglonDato.insertCell(-1).innerHTML = document.getElementById("elementoInput").value;
+
+            //agrgamos columnas vertciales
+            var tabla = document.getElementById("TablaVertical");
+            var renglonV = tabla.insertRow(-1);
+            
+            var celda1 = renglonV.insertCell(0).innerHTML = `[${contador}]`;
+            var celda2 = renglonV.insertCell(1).innerHTML = document.getElementById("elementoInput").value;
+
+            if(contador >= 9){
+                document.getElementById("botonC").disabled = true;
+                document.getElementById("elementoInput").disabled = true;
+                document.getElementById("botonGenerar").disabled = false;
+            }else{
+                document.getElementById("contador").innerHTML = `Elemento [${++contador}]`;
+                Aleatorios();
+            }
+        }
+
+        function Aleatorios(){
+            document.getElementById("elementoInput").value = Math.floor(Math.random()*1000);
+        }
+        function Reiniciar(){
+            document.getElementById("botonC").disabled = false;
+            document.getElementById("elementoInput").disabled = false;
+            document.getElementById("botonGenerar").disabled = true;
+            contador = 0;
+            document.getElementById("renglonIndice").innerHTML = "";
+            document.getElementById("renglonDato").innerHTML = "";
+            document.getElementById("renglonIndice2").innerHTML = "";
+            document.getElementById("renglonDato2").innerHTML = "";
+            document.getElementById("renglonIndice3").innerHTML = "";
+            document.getElementById("renglonDato3").innerHTML = "";
+            Aleatorios();
+            document.getElementById("contador").innerHTML = `Elemento [0]`;
+            document.getElementById("resultados").innerHTML = "";
+            document.getElementById("TablaVertical").innerHTML = "";
+            document.getElementById("TablaVertical2").innerHTML = "";
+            document.getElementById("TablaVertical3").innerHTML = "";
+
+        }
+        function Calcular(){
+            document.getElementById("TablaVertical2").innerHTML = "";
+            document.getElementById("TablaVertical3").innerHTML = "";
+            var celdas = document.getElementById("renglonDato").children;
+            var menor = parseInt(celdas[0].innerHTML);
+            var mayor = parseInt(celdas[0].innerHTML);
+            var suma = 0;
+            var promedio = 0;
+            for(var i = 0; i< celdas.length; i++){
+                if(menor > parseInt(celdas[i].innerHTML)){
+                    menor = parseInt(celdas[i].innerHTML);
+                }
+                if(mayor < parseInt(celdas[i].innerHTML)){
+                    mayor = parseInt(celdas[i].innerHTML);
+                }
+                suma += parseInt(celdas[i].innerHTML);
+            }
+            promedio = suma/celdas.length;
+
+            document.getElementById("TablaHorizontal2").innerHTML = document.getElementById("TablaHorizontal").innerHTML;
+            document.getElementById("TablaHorizontal2").rows[0].id = "renglonIndice2"
+            document.getElementById("TablaHorizontal2").rows[1].id = "renglonDato2"
+            celdas = document.getElementById("renglonDato2").children;
+            for(var i = 0; i < celdas.length; i++){
+                for(var j = 0; j < celdas.length; j++){
+                    if(parseInt(celdas[i].innerHTML) < parseInt(celdas[j].innerHTML)){
+                        var temp = celdas[i].innerHTML;
+                        celdas[i].innerHTML = celdas[j].innerHTML;
+                        celdas[j].innerHTML = temp;
+                    }
+                }
+            }
+            
+            document.getElementById("TablaHorizontal3").innerHTML = document.getElementById("TablaHorizontal").innerHTML;
+            document.getElementById("TablaHorizontal3").rows[0].id = "renglonIndice3"
+            document.getElementById("TablaHorizontal3").rows[1].id = "renglonDato3"
+            celdas = document.getElementById("renglonDato3").children;
+            for(var i = 0; i < celdas.length; i ++){
+                for(var j = 0; j < celdas.length; j ++){
+                    if(parseInt(celdas[i].innerHTML) > parseInt(celdas[j].innerHTML)){
+                        var temp = celdas[i].innerHTML;
+                        celdas[i].innerHTML = celdas[j].innerHTML;
+                        celdas[j].innerHTML = temp;
+                    }
+                }
+            }
+            for(let i=0; i<celdas.length; i++){
+                var fila = document.getElementById("TablaVertical2");
+                var nuevafila = fila.insertRow(-1);
+                var valor = nuevafila.insertCell(0).innerHTML = `[${i}]`;
+                var valor1 = nuevafila.insertCell(1).innerHTML = celdas[9-i].innerHTML;
+
+                fila = document.getElementById("TablaVertical3");
+                nuevafila = fila.insertRow(-1);
+                valor = nuevafila.insertCell(0).innerHTML = `[${i}]`;
+                valor1 = nuevafila.insertCell(1).innerHTML = celdas[i].innerHTML;
+            }
+            var mediana = (parseInt(celdas[4].innerHTML)+parseInt(celdas[5].innerHTML))/2;
+
+            var valores = document.getElementById("TablaHorizontal");
+            var frecuencias = {};
+            var moda = [];
+            var maximafrecuencia = 0;
+
+            for(let i=0; i<valores.rows[1].cells.length; i++){
+                var elementoModa = valores.rows[1].cells[i].innerHTML;
+
+                frecuencias[elementoModa] = (frecuencias[elementoModa] || 0) + 1;
+                if(frecuencias[elementoModa] > maximafrecuencia){
+                    maximafrecuencia = frecuencias[elementoModa];
+                    moda = [elementoModa];
+                } else if(frecuencias[elementoModa] === maximafrecuencia){
+                    if(!moda.includes(elementoModa)){
+                        moda.push(elementoModa);
+                    }
+                }
+            }
+            var modaFinal = "";
+            if(maximafrecuencia == 1){
+                modaFinal = "No hay moda";
+            } else {
+                modaFinal = `Las modas son: ${moda.join(", ")}`;
+            }
+            document.getElementById("resultados").innerHTML = 
+            `El menor es: ${menor}
+            <br> el mayor es: ${mayor} 
+            <br> la suma es: ${suma} 
+            <br> El promedio es: ${promedio}
+            <br> la mediana es: ${mediana}
+            <br> ${modaFinal}`;
+        }
+    </script>
+</head>
+<body onload="Aleatorios()">
+    <a href="../index.html"><button>Regresar al menu</button></a><br>
+    <h1>Arreglo 2:</h1>
+    <p>Capture un arreglo de 10 elementos de tipo entero, imprima el arreglo de forma vertical y horizontal
+        imprima el arreglo de forma ascendente y descendente, encuentre el elemento menor, el mayor, la suma, el promedio o media, y la moda. </p>
+        <p style="display: inline;" id="contador"> Elemento [0]:</p>
+        <input type="number" id="elementoInput">
+        <input type="button" value="Capturar" onclick="Capturar(); Aleatorios()" id="botonC">
+        <input type="button" value="Reiniciar" onclick="Reiniciar()">
+        <input type="button" value="Resultados" id="botonGenerar" onclick="Calcular()" disabled> 
+        <br><br><p id="resultados"></p>
+        <table border="1" style="border-collapse: collapse ;" id="TablaHorizontal">
+            <tr id="renglonIndice"></tr>
+            <tr id="renglonDato"></tr>
+        </table>
+        <table border="1" style="border-collapse: collapse;" id="TablaHorizontal2"> 
+            <tr id="renglonIndice2"></tr>
+            <tr id="renglonDato2"></tr>
+        </table>
+        <table border="1" style="border-collapse: collapse;" id="TablaHorizontal3">
+            <tr id="renglonIndice3"></tr>
+            <tr id="renglonDato3"></tr>
+        </table>
+        <br>
+        <table id="TablaVertical" border="1" style="border-collapse: collapse; display: inline-block;"></table>
+        <table id="TablaVertical2" border="1" style="border-collapse: collapse; display: inline-block;"></table>
+        <table id="TablaVertical3" border="1" style="border-collapse: collapse; display: inline-block;"></table>
+</body>
+</html>
