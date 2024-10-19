@@ -1,0 +1,116 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra todo horizontalmente */
+}
+
+/* Estilo para el título */
+h1 {
+    color: #5c67f2;
+    text-align: center;
+}
+
+/* Estilo para la tabla */
+table {
+    border-collapse: collapse;
+    margin: 20px auto; /* Centra la tabla horizontalmente */
+}
+
+td {
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    vertical-align: middle;
+    border: 2px solid #333; /* Aplica un borde a todas las celdas */
+}
+
+input[type="button"] {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    color: #5c67f2;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="button"]:hover {
+    background-color: #f0f0f5;
+}
+
+/* Estilo para los botones */
+.buttons {
+    display: flex;
+    justify-content: center; /* Centra los botones */
+    margin-top: 20px;
+}
+
+input[type="submit"] {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #5c67f2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+}
+button{
+    padding: 10px 20px;
+            background-color: #5c67f2;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+}
+input[type="submit"]:hover {
+    background-color: #474cbf;
+}
+ 
+tr
+{
+    position: relative;
+}
+ 
+td
+{
+    position: relative;
+ 
+}
+ 
+td:nth-child(1)
+{
+ 
+  border-left: none;
+  border-right: 5px solid black; 
+
+ 
+}
+ 
+td:nth-child(2)
+{
+ 
+  border-left: none;
+  border-right: 5px solid black;  
+}
+ 
+tr:nth-child(1)
+{
+ 
+  border-top: none;
+  border-bottom: 5px solid black;  
+}
+ 
+ 
+tr:nth-child(2)
+{
+ 
+  border-top: none;
+  border-bottom: 5px solid black;  
+}
