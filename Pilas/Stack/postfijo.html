@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practica Pilas 2</title>
+    <link rel="stylesheet" href="estilo.css">
+    <script src="codigo.js"></script>
+</head>
+<body>
+    <h1>Evaluación de expresión postfija</h1>
+    Expresión: <input type="text" style="width: 750px; height: 25px;" value="3 4 * 2 5 + - 4 * 2 /" id="exp">
+    <input type="button" value="Evaluar" id="botonEval" onclick="Evaluar()">
+    <input type="button" value="Paso a Paso" id="botonPaso" onclick="pasoApaso()">
+    <input type="button" value="Reiniciar" id="botonReinicio" onclick="Reinicio()">
+    <a href="../PilasIndex.html"><button id="regreso">Regresar al menu</button></a><br>
+    <p id="textResultado">Resultado: </p>
+    <table><tbody id="tabla"></tbody></table>
+    <p id="textPaso">Pasos: <br></p>
+</body>
+</html>

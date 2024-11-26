@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queue(Colas)</title>
+    <link rel="stylesheet" href="./estilo.css">
+</head>
+<script src="./codigo.js"></script>
+<body onload="Aleatorias()">
+    <h1> Cola Generica</h1>
+    Desarrolle una aplicacion que muestre un objeto tipo cola (queue),
+    <br> e implemente los metodos <b>Enqueue</b>, <b>Dequeue</b>,
+    <b>Front</b>, <b>Clear</b>, <b>Find</b>, <b>isEmpty</b>
+    <br><br>
+
+    Elemento<input type="text" id="Elemento" onkeyup="CambioTexto()">
+    <br>
+
+    <input type="button" class="retro-button" value="Enqueue()" id="iEnqueue" onclick="Enqueue(); Aleatorias();">
+    <input type="button" class="retro-button" value="Dequeue()" id="iDequeue" onclick="Dequeue()">
+    <input type="button" class="retro-button" value="Front()" id="iFront" onclick="Front()">
+    <input type="button" class="retro-button" value="Clear()" id="iClear" onclick="Clear()">
+    <input type="button" class="retro-button" value="Find()" id="iFind" onclick="Find()">
+    <input type="button" class="retro-button" value="isEmpty()" id="iIsEmpty" onclick="isEmpty()">
+
+    <table style="border-collapse: collapse;"><tbody id="tabla"></tbody> </table>
+
+    <img src="img/cola.png" alt="" style="display: inline-table;">
+
+</body>
+</html>

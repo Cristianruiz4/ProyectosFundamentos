@@ -1,0 +1,33 @@
+/* Botones */
+a {
+    padding: 20px 30px; /* Tamaño más grande */
+    margin: 20px 0; /* Espaciado vertical entre botones */
+    background-color: #5c67f2;
+    border: none;
+    color: #ffffff;
+    font-size: 20px; /* Texto más grande */
+    cursor: pointer;
+    border-radius: 10px; /* Bordes más redondeados */
+    text-align: center; /* Centrar texto */
+    display: block; /* Asegura que los botones estén en línea vertical */
+}
+
+/* Fondo y estructura de la página */
+body {
+    background-color: #f4f4f9;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* Organiza los elementos en una columna */
+    align-items: center; /* Centra los elementos horizontalmente */
+    justify-content: center; /* Centra los elementos verticalmente */
+    height: 100vh; /* Ocupa toda la ventana */
+}
+
+/* Título */
+h1 {
+    color: #b88d42;
+    text-align: center;
+    margin: 20px 0; /* Espaciado superior e inferior */
+    font-size: 50px;
+}

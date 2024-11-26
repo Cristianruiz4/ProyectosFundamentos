@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista</title>
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<script>
+function CambioTexto() {
+  var texto = document.getElementById("Elemento").value;
+  document.getElementById("pushh").value = `Push(${texto})`;
+  document.getElementById("unshiftt").value = `Unshift(${texto})`;
+  document.getElementById("indexx").value = `indexOf(${texto})`;
+  document.getElementById("includess").value = `includes(${texto})`;
+ 
+  var numero = document.getElementById("Posicion").value;
+  document.getElementById("insertt").value = `insert_at(${texto},${numero})`;
+}
+ 
+function pushhh() {
+  var texto = document.getElementById("Elemento").value;
+  if (texto) {  // Aseguramos que haya texto antes de proceder
+    var lista = document.getElementById("tabla");
+    var renglon = document.createElement("tr");
+    var celda = document.createElement("td");
+    celda.style.border = "1px solid black";
+    celda.textContent = texto;
+    renglon.appendChild(celda);
+    lista.appendChild(renglon);  // Añadimos la nueva fila a la tabla
+  }
+}
+ 
+
+ 
+</script>
+<body>
+  <h1>Lista</h1>
+  <p>Elemento:</p><input type="text" id="Elemento" onkeyup="CambioTexto()">
+  <input type="button" value="push()" id="pushh" onclick="pushhh()">
+
+  <br><br>
+  <a id="regreso" href="../ListasIndex.html">Regresar al menu</a>
+  <table>
+    <tbody id="tabla"></tbody>
+  </table>
+</body>
+</html>

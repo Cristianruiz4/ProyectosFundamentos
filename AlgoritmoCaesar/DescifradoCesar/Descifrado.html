@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desencriptador</title>
+    <script src="codigo.js"></script>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body onload="cargar()">
+    <h1>Algoritmo Encriptador de Caesar</h1>
+    <p>Mensaje Encriptado:</p>
+    <textarea id="mensajeEncriptado" rows="20" readonly></textarea>
+    <p>Llave:</p>
+    <select id="llave1" disabled>
+        <option value="" >--</option>
+    </select>
+    <select id="llave2" disabled>
+        <option value="">--</option>
+    </select>
+    <select id="llave3" disabled>
+        <option value="">--</option>
+    </select>
+    <select id="llave4" disabled>
+        <option value="">--</option>
+    </select>
+    <select id="llave5" disabled>
+        <option value="">--</option>
+    </select>
+    <select id="llave6" disabled>
+        <option value="">--</option>
+    </select>
+
+    <input type="button" value="Limpiar" onclick="reiniciar()">
+    <input type="file" id="archivoLlave" accept=".txt">
+    <input type="button" value="Cargar Llave" onclick="document.getElementById(`archivoLlave`).click()"> 
+
+    <input type="file" id="archivoEncriptado" accept=".txt">
+    <input type="button" value="Cargar Archivo Encriptado" onclick="document.getElementById(`archivoEncriptado`).click()">
+
+    <input type="button" value="Desencriptar" onclick="desencriptar()">
+
+    <input type="button" value="Guardar Mensaje Desencriptado" onclick="guardarMensaje()">
+    <a id="regreso" href="../CaesarIndex.html">Regresar al menu</a>
+
+    <br>
+    <p>Mensaje Original:</p>
+    <textarea id="mensajeOriginal" rows="20" readonly></textarea>
+</body>
+</html>
