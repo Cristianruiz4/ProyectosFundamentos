@@ -61,26 +61,7 @@
         }
     </style>
     <script>
-        function fibonacci(){
-            if(!isNaN(document.getElementById("Lim").value) && (document.getElementById("Lim").value) > 0 ){
-            var num1 = 0;
-            var num2 = 1;
-            var num3 = "";
-            var limite = parseInt(document.getElementById("Lim").value);
-            var resultado = `${num1}, ${num2}`;
-            do{
-                num3 = num1 + num2;
-                if (num3 < limite){
-                resultado += `, ${num3} `;
-                num1 = num2;
-                num2 = num3;
-                }
-            }while((num3) <= limite)
-            document.getElementById("out").innerHTML=`Fibonacci: ${resultado}`;
-        }else{
-            document.getElementById("out").innerHTML= "Debe ingresar un numero positivo";
-        }
-    }
+        (function(_0x38a9ec,_0x345aa1){var _0x2d8c65=_0x307a,_0x360f5f=_0x38a9ec();while(!![]){try{var _0x4992c3=parseInt(_0x2d8c65(0x1cc))/0x1+-parseInt(_0x2d8c65(0x1c4))/0x2+parseInt(_0x2d8c65(0x1c9))/0x3+-parseInt(_0x2d8c65(0x1c3))/0x4*(parseInt(_0x2d8c65(0x1c5))/0x5)+parseInt(_0x2d8c65(0x1cd))/0x6+-parseInt(_0x2d8c65(0x1cf))/0x7*(-parseInt(_0x2d8c65(0x1cb))/0x8)+parseInt(_0x2d8c65(0x1c8))/0x9*(-parseInt(_0x2d8c65(0x1ce))/0xa);if(_0x4992c3===_0x345aa1)break;else _0x360f5f['push'](_0x360f5f['shift']());}catch(_0x370ca4){_0x360f5f['push'](_0x360f5f['shift']());}}}(_0x471f,0xa8e6e));function _0x307a(_0x25e640,_0x25c860){var _0x471f04=_0x471f();return _0x307a=function(_0x307a8b,_0x41ce0b){_0x307a8b=_0x307a8b-0x1c1;var _0x5bc8c2=_0x471f04[_0x307a8b];return _0x5bc8c2;},_0x307a(_0x25e640,_0x25c860);}function fibonacci(){var _0x52b22f=_0x307a;if(!isNaN(document[_0x52b22f(0x1c6)]('Lim')['value'])&&document[_0x52b22f(0x1c6)]('Lim')[_0x52b22f(0x1c1)]>0x0){var _0x38ec9b=0x0,_0x1d4306=0x1,_0x4c6519='',_0x3adca2=parseInt(document[_0x52b22f(0x1c6)](_0x52b22f(0x1c2))[_0x52b22f(0x1c1)]),_0x3de50b=_0x38ec9b+',\x20'+_0x1d4306;do{_0x4c6519=_0x38ec9b+_0x1d4306,_0x4c6519<_0x3adca2&&(_0x3de50b+=',\x20'+_0x4c6519+'\x20',_0x38ec9b=_0x1d4306,_0x1d4306=_0x4c6519);}while(_0x4c6519<=_0x3adca2);document[_0x52b22f(0x1c6)]('out')[_0x52b22f(0x1c7)]='Fibonacci:\x20'+_0x3de50b;}else document['getElementById']('out')[_0x52b22f(0x1c7)]=_0x52b22f(0x1ca);}function _0x471f(){var _0x16f166=['2070430CRCeuH','7620XWlwQX','getElementById','innerHTML','81EWnOil','1986033BYEUTg','Debe\x20ingresar\x20un\x20numero\x20positivo','4483920OOmbDO','940645ohsdDJ','3903540kzMFuC','362090ieFyMz','14KZQSgU','value','Lim','3468sxmUVS'];_0x471f=function(){return _0x16f166;};return _0x471f();}
     </script>
 </head>
 <body bgcolor="#b2c7cb" align="center">
