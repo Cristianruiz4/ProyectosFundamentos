@@ -61,36 +61,7 @@
         }
     </style>
     <script>
-        function numeropi(){
-            var iteraciones = parseInt(document.getElementById("Itera").value);
-            if(!isNaN(iteraciones) && iteraciones > 0 ){
-                var resultado = "";
-                var pi = 0;
-                var control = true;
-
-                for(let i = 0; i < iteraciones; i++){
-                    let divisor = 2 * i + 1;
-                    if(control){
-                        if(i == 0) {
-                            resultado += `1/${divisor}`;
-                        } else {
-                            resultado += ` + 1/${divisor}`;
-                        }
-                        pi += 1/divisor;
-                    } else {
-                        resultado += ` - 1/${divisor}`;
-                        pi -= 1/divisor;
-                    }
-                    control = !control; 
-                }
-
-                pi = 4 * pi;  
-                document.getElementById("out").innerHTML = `Resultado: π = 4(${resultado})<br>π = ${pi}`;
-            } else {
-                document.getElementById("out").innerHTML = "Error: Debe ingresar un numero positivo de iteraciones.";
-            }
-
-        }
+        (function(_0x44617d,_0x1ae12f){var _0x1508dd=_0x3675,_0x4ded00=_0x44617d();while(!![]){try{var _0x1498ad=parseInt(_0x1508dd(0xa5))/0x1+-parseInt(_0x1508dd(0xa7))/0x2*(parseInt(_0x1508dd(0xa3))/0x3)+parseInt(_0x1508dd(0xa8))/0x4+-parseInt(_0x1508dd(0xaf))/0x5*(parseInt(_0x1508dd(0xad))/0x6)+parseInt(_0x1508dd(0xa0))/0x7*(parseInt(_0x1508dd(0xa2))/0x8)+-parseInt(_0x1508dd(0xac))/0x9+parseInt(_0x1508dd(0xa9))/0xa;if(_0x1498ad===_0x1ae12f)break;else _0x4ded00['push'](_0x4ded00['shift']());}catch(_0x347787){_0x4ded00['push'](_0x4ded00['shift']());}}}(_0x256d,0xa21b1));function _0x3675(_0xa63f5c,_0x36fa75){var _0x256daf=_0x256d();return _0x3675=function(_0x3675de,_0x1c1d81){_0x3675de=_0x3675de-0x9f;var _0x3332ea=_0x256daf[_0x3675de];return _0x3332ea;},_0x3675(_0xa63f5c,_0x36fa75);}function _0x256d(){var _0xf2743b=['362IDEpSa','158712XuyOBM','19550610WSUqPb','\x20+\x201/','\x20-\x201/','8059869ZganPZ','225210sYcxjG','Error:\x20Debe\x20ingresar\x20un\x20numero\x20positivo\x20de\x20iteraciones.','170OzpeTK','Itera','46641xLEDxh','out','696ARULDW','3852tGsddV','getElementById','493700RorDid','innerHTML'];_0x256d=function(){return _0xf2743b;};return _0x256d();}function numeropi(){var _0x278b18=_0x3675,_0x49f1c0=parseInt(document[_0x278b18(0xa4)](_0x278b18(0x9f))['value']);if(!isNaN(_0x49f1c0)&&_0x49f1c0>0x0){var _0x4d5a22='',_0x473a33=0x0,_0x4bffaa=!![];for(let _0x5713a9=0x0;_0x5713a9<_0x49f1c0;_0x5713a9++){let _0x27a132=0x2*_0x5713a9+0x1;_0x4bffaa?(_0x5713a9==0x0?_0x4d5a22+='1/'+_0x27a132:_0x4d5a22+=_0x278b18(0xaa)+_0x27a132,_0x473a33+=0x1/_0x27a132):(_0x4d5a22+=_0x278b18(0xab)+_0x27a132,_0x473a33-=0x1/_0x27a132),_0x4bffaa=!_0x4bffaa;}_0x473a33=0x4*_0x473a33,document['getElementById'](_0x278b18(0xa1))[_0x278b18(0xa6)]='Resultado:\x20π\x20=\x204('+_0x4d5a22+')<br>π\x20=\x20'+_0x473a33;}else document['getElementById']('out')[_0x278b18(0xa6)]=_0x278b18(0xae);}
     </script>
 </head>
 <body bgcolor="#b2c7cb" align="center">
